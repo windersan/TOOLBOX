@@ -1,0 +1,50 @@
+<mat-card>
+  <app-crear-empleado [lang]="lang"></app-crear-empleado>
+
+  <mat-form-field appearance="standard">
+    <mat-select [(value)]="lang">
+      <mat-option value="English">English</mat-option>
+      <mat-option value="Español">Español</mat-option>
+      <mat-option value="Русский">Русский</mat-option>
+    </mat-select>
+  </mat-form-field>
+
+</mat-card>
+
+
+
+
+<!--Style binding-->
+<h1 [style.background-color]="blue?'skyblue':'yellow'">
+  Welcome to {{ title }}!
+</h1>
+
+<!-- two-way binding-->
+<input [(ngModel)]='count'>
+<br>
+
+<!--event binding-->
+<button (click)=" set() ">
+  <!--interpolation-->
+  set number to {{count}} + 1
+</button>
+<br><br>
+
+<!--property binding-->
+<input [value]='title' (input)='title=$event.target.value'>
+
+<br>
+<button (click)="changeColor()">color change</button>
+
+
+<router-outlet></router-outlet>
+
+
+
+<app-slider></app-slider>
+<app-datatable></app-datatable>
+<!-- 
+<app-fx></app-fx>
+
+
+<canvas id="myCanvas" width="200" height="100"></canvas>  -->

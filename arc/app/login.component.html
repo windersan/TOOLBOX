@@ -1,0 +1,25 @@
+<div class="container well" (swipe)="swipeit()">
+<form [formGroup]="loginForm" (ngSubmit)="onSubmit()" >
+  <div class="form-group col-md-4">
+      <label for="username">{{swiper}}</label>
+      <input id="username" formControlName="username" type="text" class="form-control" placeholder="{{swiper}}"/>
+  </div>
+  <div class="form-group col-md-4">
+    <label for="password">Password</label>
+    <input id="password" formControlName="password" type="text" class="form-control" placeholder="Login Password"/>
+  </div>
+    <button class="btn btn-info">Login</button><br><br>
+</form>
+<button class="btn btn-warning" (click)="newUser()">New User</button>
+</div>
+
+ <h2>Manager login: arctrade///arctrade</h2>
+
+ <button class="btn btn-primary btnx" [@flyInOut]="'in'" (click)="newUser()">comp1</button>
+
+ <br>
+ <hr>
+
+  <button class="btn btn-primary" (click)="newUser()">comp2</button>
+
+  <img src="assets/images/balance.jpg" alt="image" class="imgx">

@@ -1,0 +1,51 @@
+<mat-card>
+
+  <mat-card-header color="primary">
+    <mat-card-title>{{a1}}</mat-card-title>
+  </mat-card-header>
+
+  <form class="nuevo-empleado-container" [formGroup]="empleadoFormGroup">
+
+    <mat-form-field appearance="standard" [floatLabel]=empleadoFormGroup.value.floatLabel>
+      <input matInput placeholder={{a2}} formControlName="apellido">
+    </mat-form-field>
+    <span *ngIf="((empleadoFormGroup.get('apellido').touched ||
+                   empleadoFormGroup.get('apellido').dirty) &&
+                   empleadoFormGroup.get('apellido').errors)" style="color:#D32F2F">
+      <span *ngIf="empleadoFormGroup.get('apellido').errors.required">
+        {{err1}}
+      </span>
+    </span>
+    <mat-form-field appearance="standard" [floatLabel]=empleadoFormGroup.value.floatLabel>
+      <input matInput placeholder={{a3}} formControlName="email" required>
+    </mat-form-field>
+
+
+    <div formArrayName="habilidades">
+      <button mat-raised-button color="accent" (click)="addSkill()">{{b1}}</button>
+
+      <div *ngFor="let h of habilidades.controls; let i=index">
+        <div [formGroupName]="i">
+
+          <mat-form-field appearance="standard">
+            <input matInput placeholder={{a4}} formControlName="habilidad">
+          </mat-form-field>
+
+          <mat-form-field appearance="standard">
+            <mat-select placeholder={{a5}} formControlName="nivel">
+              <mat-option value="principiante">{{N1}}</mat-option>
+              <mat-option value="medio">{{N2}}</mat-option>
+              <mat-option value="avanzado">{{N3}}</mat-option>
+            </mat-select>
+          </mat-form-field>
+
+        </div>
+      </div>
+    </div>
+
+  </form>
+
+
+
+
+</mat-card>
